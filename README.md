@@ -1,6 +1,6 @@
 # Sistema de Informação para a Empresa Exercitar Brincando
 
-Este repositório contém o desenvolvimento de um sistema de informação para a empresa **Exercitar Brincando**, localizada no bairro de Ipanema, Rio de Janeiro. A empresa atua no mercado de recreação, com foco no aluguel e venda de bicicletas. O sistema tem como objetivo automatizar e otimizar os processos gerenciais da empresa, como controle de bicicletas, aluguéis, reservas, sugestões de compras e cadastro de clientes.
+Este repositório contém o desenvolvimento de um sistema de informação para a empresa **Exercitar Brincando**, localizada no bairro de Ipanema, Rio de Janeiro. A empresa atua no mercado de recreação, com foco no aluguel e venda de bicicletas.  O sistema tem como objetivo automatizar e otimizar os processos gerenciais da empresa, como controle de bicicletas, aluguéis, reservas, sugestões de compras e cadastro de clientes.
 
 ## Problema
 
