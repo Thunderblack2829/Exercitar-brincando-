@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="botaoDropDown">
+            <select id="clienteDropdown" class="botaoDropDown-btn">
+                <option value="novo-cliente">Novo Cliente</option>
+                <option value="usuario-existente">Cliente Existente</option>
+            </select>
+        </div>
+        
+        <!-- Formulário de Novo Cliente -->
+        <form id="form-novo-cliente" class="cliente-form">
+         
+            <input type="text" placeholder="Nome Completo" required>
+            <input type="text" placeholder="Endereço" required>
+            <input type="text" placeholder="N°" required>
+            <input type="text" placeholder="Telefone" required>
+            <input type="text" placeholder="CPF" required><br>
+            <label>Possui dependentes</label>
+            <div>
+                <input type="radio" id="Sim" name="dependentes" value="Sim">
+                <label for="Sim">Sim</label>
+                <input type="radio" id="Não" name="dependentes" value="Não">
+                <label for="Não">Não</label>
+            </div>
+            <input type="text" placeholder="Nome Completo (Dependente)">
+            <input type="text" placeholder="CPF (Dependente)">
+            <br><button type="submit">Cadastrar-se</button>
+        </form>
+
+        <!-- Formulário de Usuário Existente -->
+        <form id="form-usuario-existente" class="cliente-form" style="display: none;">
+          
+            <input type="text" placeholder="Nome Completo" required>
+            <input type="text" placeholder="CPF" required>
+            <br><button type="submit">Entrar</button>
+        </form>
+    </div>
+
+    <!-- JavaScript para alternar os formulários -->
+    <script>
+        const dropdown = document.getElementById('clienteDropdown'); // Corrigido para 'clienteDropdown'
+        const formNovoCliente = document.getElementById('form-novo-cliente');
+        const formUsuarioExistente = document.getElementById('form-usuario-existente');
+
+        dropdown.addEventListener('change', function() {
+            if (dropdown.value === 'novo-cliente') {
+                formNovoCliente.style.display = 'block';
+                formUsuarioExistente.style.display = 'none';
+            } else {
+                formNovoCliente.style.display = 'none';
+                formUsuarioExistente.style.display = 'block';
+            }
+        });
+        
+        // Garantir que o formulário de novo cliente esteja visível ao carregar a página
+        window.onload = function() {
+            formNovoCliente.style.display = 'block';
+            formUsuarioExistente.style.display = 'none';
+        };
+    </script>
+</body>
+</html>
