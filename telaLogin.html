@@ -31,8 +31,11 @@
                 <input type="radio" id="Não" name="dependentes" value="Não">
                 <label for="Não">Não</label>
             </div>
-            <input type="text" placeholder="Nome Completo (Dependente)">
-            <input type="text" placeholder="CPF (Dependente)">
+             <!--campos de dependentes oculto caso nao seja selecionado-->
+            <div id="dependentes-info" style="display: none;">
+                <input type="text" placeholder="Nome Completo (Dependente)">
+                <input type="text" placeholder="CPF (Dependente)">
+            </div>
             <br><button type="submit">Cadastrar-se</button>
         </form>
 
@@ -47,10 +50,12 @@
 
     <!-- JavaScript para alternar os formulários -->
     <script>
-        const dropdown = document.getElementById('clienteDropdown'); // Corrigido para 'clienteDropdown'
+      const dropdown = document.getElementById('clienteDropdown');
         const formNovoCliente = document.getElementById('form-novo-cliente');
         const formUsuarioExistente = document.getElementById('form-usuario-existente');
+        const dependentesInfo = document.getElementById('dependentes-info'); // Div que contém os campos de dependentes
 
+        // Alternar os formulários com base na seleção do dropdown
         dropdown.addEventListener('change', function() {
             if (dropdown.value === 'novo-cliente') {
                 formNovoCliente.style.display = 'block';
@@ -66,6 +71,18 @@
             formNovoCliente.style.display = 'block';
             formUsuarioExistente.style.display = 'none';
         };
+
+        // Monitorar os rádios de dependentes e exibir/ocultar os campos de dependentes
+        const radiosDependentes = document.getElementsByName('dependentes');
+        radiosDependentes.forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (this.value === 'Sim') {
+                    dependentesInfo.style.display = 'block'; // Mostrar campos de dependentes
+                } else {
+                    dependentesInfo.style.display = 'none'; // Ocultar campos de dependentes
+                }
+            });
+        });
     </script>
 </body>
 </html>
