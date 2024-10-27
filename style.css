@@ -12,16 +12,21 @@ body{
     color: #333;
 }
 
-/* navbar */
-.nav{
+/* Navbar */
+.nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: black;
     padding: 10px 20px;
+    position: fixed; /* Fixa a navbar no topo da página */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
-.nav-left{
+.nav-left {
     display: flex;
     align-items: center;
 }
@@ -38,33 +43,32 @@ body{
 .nav-right a img.icon {
     width: 40px;
     height: 40px;
-    margin-right: 10px; /* Espaço entre o ícone e o texto */
+    margin-right: 10px;
 }
 
 .nav-right a:hover {
-    color: #f0f0f0; /* Efeito hover */
+    color: #f0f0f0;
 }
 
-
-.logo-img{
+.logo-img {
     width: 60px;
     height: auto;
 }
 
-.nav-links{
+.nav-links {
     display: flex;
     justify-content: center;
     list-style: none;
     gap: 30px;
 }
 
-.nav-links li{
+.nav-links li {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.nav-links a{
+.nav-links a {
     color: white;
     text-decoration: none;
     font-size: 16px;
@@ -73,11 +77,11 @@ body{
     align-items: center;
 }
 
-.nav-links a:hover{
+.nav-links a:hover {
     color: #f0f0f0;
 }
 
-.icon{
+.icon {
     width: 40px;
     height: 40px;
     margin-bottom: 4px;
