@@ -16,8 +16,8 @@
             </div>
          </div>
         <ul class="nav-links">
-            <li><a href="#"><img src="/imagens/bikeIcon.png" class="icon">Bicicletas</a></li>
-            <li><a href="#"><img src="/imagens/calendarioIcon.png" class="icon">Agendar</a></li>
+            <li><a href="cadastrarBike.html"><img src="/imagens/bikeIcon.png" class="icon">Bicicletas</a></li>
+            <li><a href="Agendamento.html"><img src="/imagens/calendarioIcon.png" class="icon">Agendar</a></li>
             <li><a href="sobreNós.html"><img src="/imagens/chatIcon.png" class="icon">Sobre Nós</a></li>
         </ul>
         <div class="nav-right">
@@ -65,41 +65,6 @@
         </form>
     </div>
 
-    <!-- JavaScript para alternar os formulários -->
-    <script>
-        const dropdown = document.getElementById('clienteDropdown');
-        const formNovoCliente = document.getElementById('form-novo-cliente');
-        const formUsuarioExistente = document.getElementById('form-usuario-existente');
-        const dependentesInfo = document.getElementById('dependentes-info'); // Div que contém os campos de dependentes
-
-        // Alternar os formulários com base na seleção do dropdown
-        dropdown.addEventListener('change', function() {
-            if (dropdown.value === 'novo-cliente') {
-                formNovoCliente.style.display = 'block';
-                formUsuarioExistente.style.display = 'none';
-            } else {
-                formNovoCliente.style.display = 'none';
-                formUsuarioExistente.style.display = 'block';
-            }
-        });
-        
-        // Garantir que o formulário de novo cliente esteja visível ao carregar a página
-        window.onload = function() {
-            formNovoCliente.style.display = 'block';
-            formUsuarioExistente.style.display = 'none';
-        };
-
-        // Monitorar os rádios de dependentes e exibir/ocultar os campos de dependentes
-        const radiosDependentes = document.getElementsByName('dependentes');
-        radiosDependentes.forEach(radio => {
-            radio.addEventListener('change', function() {
-                if (this.value === 'Sim') {
-                    dependentesInfo.style.display = 'block'; // Mostrar campos de dependentes
-                } else {
-                    dependentesInfo.style.display = 'none'; // Ocultar campos de dependentes
-                }
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
