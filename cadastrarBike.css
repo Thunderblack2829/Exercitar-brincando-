@@ -1,17 +1,17 @@
-*{
+/* Reset básico */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    padding: 20px;
 }
 
 /* Navbar */
@@ -21,8 +21,8 @@ body{
     align-items: center;
     background-color: black;
     padding: 10px 20px;
-    position: fixed; /* Fixa a navbar no topo da página */
     width: 100%;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
@@ -59,7 +59,6 @@ body{
 
 .nav-links {
     display: flex;
-    justify-content: center;
     list-style: none;
     gap: 30px;
 }
@@ -89,9 +88,7 @@ body{
     margin-bottom: 4px;
 }
 
-
-/*container das bicicletas*/
-
+/* Container principal */
 .container {
     background-color: #fff;
     padding: 40px;
@@ -99,23 +96,44 @@ body{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 450px;
     text-align: center;
-    margin: 120px auto 0; /* Margin ajustado para centralizar verticalmente, dando espaço para a navbar */
-    position: relative;
+    margin-top: 100px; /* Espaço para a navbar */
 }
 
-.container h1 {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
+/* Botões para alternar entre cadastro e visualização */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
     margin-bottom: 20px;
 }
 
-form.sugestao-bike {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+.button-group button {
+    background-color: #e62e2e;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 30px 40px;
+    border-radius: 5px;
+    margin: 0 10px; /* Espaçamento entre os botões */
 }
 
+.button-group button:hover {
+    background-color: darkred;
+}
+
+/* Formulário de cadastro e exibição das bicicletas */
+.form-container,
+.bicicletas-container {
+    display: none;
+}
+
+#formCadastro.active,
+#bicicletasDisponiveis.active {
+    display: block;
+}
+
+/* Estilo do formulário */
 form.cadastrar-bike input,
 form.cadastrar-bike textarea,
 form.cadastrar-bike button {
@@ -126,11 +144,6 @@ form.cadastrar-bike button {
     border-radius: 5px;
     border: 1px solid #ccc;
     background-color: #f0f0f0;
-}
-
-form.cadastrar-bike textarea {
-    resize: vertical;
-    height: 100px;
 }
 
 form.cadastrar-bike button {
@@ -145,4 +158,20 @@ form.cadastrar-bike button {
 
 form.cadastrar-bike button:hover {
     background-color: darkred;
+}
+
+/* Estilo da exibição das bicicletas */
+.bicicleta {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.bicicleta .bike-img {
+    width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
