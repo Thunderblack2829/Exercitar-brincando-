@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const formUsuarioExistente = document.getElementById('form-usuario-existente');
     const dependentesInfo = document.getElementById('dependentes-info');
     const radiosDependentes = document.getElementsByName('dependentes');
-    const sugestoesClientes = document.getElementById('sugestoes-clientes'); // Seção de sugestões
 
     // Função para alternar a exibição dos formulários com base na seleção do dropdown
     function toggleForms() {
@@ -38,21 +37,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Verificar dados de login do usuário existente, incluindo verificação de administrador
+    // Verificar dados de login do usuário existente
     formUsuarioExistente.addEventListener('submit', function(event) {
         event.preventDefault();
         const nome = formUsuarioExistente.querySelector('input[placeholder="Nome Completo"]').value;
         const cpf = formUsuarioExistente.querySelector('input[placeholder="CPF"]').value;
 
-        // Verificar se é um usuário administrador
-        if (nome.toLowerCase() === 'masterkey' && cpf === '123456') {
-            alert('Bem-vindo, Administrador!');
-            sugestoesClientes.style.display = 'block'; // Exibir sugestões para o administrador
-            formUsuarioExistente.reset();
-            return;
-        }
-
-        // Verificação para outros usuários
         const cliente = JSON.parse(localStorage.getItem(cpf));
         
         if (cliente && cliente.nome === nome) {
