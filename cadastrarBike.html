@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Aluguel de Bicicletas</title>
     <link rel="stylesheet" href="cadastrarBike.css">
 </head>
 <body>
@@ -13,10 +13,10 @@
             <div class="logo">
                 <img src="/imagens/logo.png" alt="logo" class="logo-img">
             </div>
-         </div>
+        </div>
         <ul class="nav-links">
-            <li><a href="#"><img src="/imagens/bikeIcon.png" class="icon">Bicicletas</a></li>
-            <li><a href="#"><img src="/imagens/calendarioIcon.png" class="icon">Agendar</a></li>
+            <li><a href="cadastrarBike.html"><img src="/imagens/bikeIcon.png" class="icon">Bicicletas</a></li>
+            <li><a href="Agendamento.html"><img src="/imagens/calendarioIcon.png" class="icon">Agendar</a></li>
             <li><a href="sobrenos.html"><img src="/imagens/chatIcon.png" class="icon">Sobre Nós</a></li>
         </ul>
         <div class="nav-right">
@@ -24,18 +24,36 @@
         </div>
     </nav>
 
-    <div class="container">
+    <!-- Botões de seleção para cadastro ou visualização -->
+    <div class="button-group">
+        <button onclick="mostrarCadastro()">Cadastrar Bicicleta</button>
+        <button onclick="mostrarBicicletas()">Ver Bicicletas Cadastradas</button>
+    </div>
+    
+    <div class="button-group">
+        <button onclick="mostrarBicicletas()">Ver Bicicletas Cadastradas</button>
+    </div>
+    <!-- Formulário de Cadastro -->
+    <div id="formCadastro" class="container">
         <h1>CADASTRAR BICICLETA</h1>
-        <form id="cadastro" class="cadastrar-bike" >
-            <input class="img-input" type="file" accept="image/*" placeholder="insira imagem da bicicleta">
-            <input type="text" placeholder="Modelo da Bicicleta">
-            <input type="text" placeholder="Tipo">
-            <input type="text" placeholder="Descrição">
+        <form id="cadastro" class="cadastrar-bike">
+            <input class="img-input" type="file" accept="image/*" placeholder="Insira imagem da bicicleta" required>
+            <input type="text" placeholder="Modelo da Bicicleta" required>
+            <input type="text" placeholder="Tipo" required>
+            <input type="text" placeholder="Descrição" required>
             <button type="submit">Enviar</button>
         </form>
+    </div>
 
-    </div>  
+    <!-- Lista de Bicicletas -->
+    <div id="bicicletasDisponiveis" class="container" style="display: none;">
+        <div class="button-group">
+            <button onclick="mostrarCadastro()">Cadastrar Bicicleta</button>
+        </div>
+        <h2>Bicicletas Disponíveis</h2>
+        <div id="listaBicicletas"></div>
+    </div>
 
-    
+    <script src="cadastroBike.js"></script>
 </body>
 </html>
