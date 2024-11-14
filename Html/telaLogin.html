@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+     <!-- Navbar -->
+     <nav class="nav">
+        <div class="nav-left">
+            <div class="logo">
+                <a href="/Html/telaInicial.html"><img src="/imagens/logo.png" alt="logo" class="logo-img"></a>
+            </div>
+         </div>
+        <ul class="nav-links">
+            <li><a href="/Html/telaBicicletas.html"><img src="/imagens/bikeIcon.png" class="icon">Bicicletas</a></li>
+            <li><a href="/Html/agendamento.html"><img src="/imagens/calendarioIcon.png" class="icon">Agendar</a></li>
+            <li><a href="/Html/sobreNos.html"><img src="/imagens/chatIcon.png" class="icon">Sobre Nós</a></li>
+        </ul>
+        <div class="nav-right">
+            <a href="/Html/telaLogin.html"><img src="/imagens/loginIcon.png" class="icon">Entrar</a>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <div class="botaoDropDown">
+            <select id="clienteDropdown" class="botaoDropDown-btn">
+                <option value="novo-cliente">Novo Cliente</option>
+                <option value="usuario-existente">Cliente Existente</option>
+            </select>
+        </div>
+        
+        <!-- Formulário de Novo Cliente -->
+        <form id="form-novo-cliente" class="cliente-form">
+         
+            <input type="text" placeholder="Nome Completo" required>
+            <input type="text" placeholder="Endereço" required>
+            <input type="text" placeholder="N°" required>
+            <input type="text" placeholder="Telefone" required>
+            <input type="text" placeholder="CPF" required><br>
+            <label>Possui dependentes</label>
+            <div>
+                <input type="radio" id="Sim" name="dependentes" value="Sim">
+                <label for="Sim">Sim</label>
+                <input type="radio" id="Não" name="dependentes" value="Não">
+                <label for="Não">Não</label>
+            </div>
+            <!--campos de dependentes oculto caso nao seja selecionado-->
+            <div id="dependentes-info" style="display: none;">
+                <input type="text" placeholder="Nome Completo (Dependente)">
+                <input type="text" placeholder="CPF (Dependente)">
+            </div>
+            <br><button type="submit">Cadastrar-se</button>
+        </form>
+
+        <!-- Formulário de Usuário Existente -->
+        <form id="form-usuario-existente" class="cliente-form" style="display: none;">
+          
+            <input type="text" placeholder="Nome Completo" required>
+            <input type="text" placeholder="CPF" required>
+            <br><button type="submit">Entrar</button>
+        </form>
+    </div>
+
+    <!-- JavaScript para alternar os formulários -->
+    <script>
+        const dropdown = document.getElementById('clienteDropdown');
+        const formNovoCliente = document.getElementById('form-novo-cliente');
+        const formUsuarioExistente = document.getElementById('form-usuario-existente');
+        const dependentesInfo = document.getElementById('dependentes-info'); // Div que contém os campos de dependentes
+
+        // Alternar os formulários com base na seleção do dropdown
+        dropdown.addEventListener('change', function() {
+            if (dropdown.value === 'novo-cliente') {
+                formNovoCliente.style.display = 'block';
+                formUsuarioExistente.style.display = 'none';
+            } else {
+                formNovoCliente.style.display = 'none';
+                formUsuarioExistente.style.display = 'block';
+            }
+        });
+        
+        // Garantir que o formulário de novo cliente esteja visível ao carregar a página
+        window.onload = function() {
+            formNovoCliente.style.display = 'block';
+            formUsuarioExistente.style.display = 'none';
+        };
+
+        // Monitorar os rádios de dependentes e exibir/ocultar os campos de dependentes
+        const radiosDependentes = document.getElementsByName('dependentes');
+        radiosDependentes.forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (this.value === 'Sim') {
+                    dependentesInfo.style.display = 'block'; // Mostrar campos de dependentes
+                } else {
+                    dependentesInfo.style.display = 'none'; // Ocultar campos de dependentes
+                }
+            });
+        });
+    </script>
+</body>
+</html>
