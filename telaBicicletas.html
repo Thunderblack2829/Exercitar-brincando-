@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aluguel de Bicicletas</title>
+    <link rel="stylesheet" href="/Css/telaBicicletas.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="nav">
+        <div class="nav-left">
+            <div class="logo">
+                <a href="/Html/telaInicial.html"><img src="/imagens/logo.png" alt="logo" class="logo-img"></a>
+            </div>
+         </div>
+        <ul class="nav-links">
+            <li><a href="/Html/telaBicicletas.html"><img src="/imagens/bikeIcon.png" class="icon">Bicicletas</a></li>
+            <li><a href="/Html/agendamento.html"><img src="/imagens/calendarioIcon.png" class="icon">Agendar</a></li>
+            <li><a href="/Html/sobreNos.html"><img src="/imagens/chatIcon.png" class="icon">Sobre Nós</a></li>
+        </ul>
+        <div class="nav-right">
+            <a href="/Html/telaLogin.html"><img src="/imagens/loginIcon.png" class="icon">Entrar</a>
+        </div>
+    </nav>
+
+
+    <!-- Conteúdo Principal -->
+    <main class="main-content">
+        <div class="filter">
+            <h3>Filtrar Por:</h3>
+            <div class="filter-option">
+                <h4>Modalidade</h4>
+                <label><input type="checkbox"> Mountain Bike</label>
+                <label><input type="checkbox"> Lazer</label>
+                <label><input type="checkbox"> Estrada</label>
+            </div>
+            <div class="suggestion">
+                <p>Não encontrou o que procurava?</p>
+                <a href="/Html/cadastrarBike.html"><button>Sugira Aqui</button></a>
+            </div>
+        </div>
+
+        <div class="bikes-list">
+            <div class="header">
+                <h2>8 Resultados</h2>
+                <select>
+                    <option>Mais Relevantes</option>
+                    <option>Preço: Menor para Maior</option>
+                    <option>Preço: Maior para Menor</option>
+                </select>
+            </div>
+
+            <!-- Exemplo de Card de Bicicleta -->
+            <div class="bike-card">
+                <img src="/imagens/caloi aro 29.jpg aro 29.jpg" alt="Caloi 400 Aro 29" class="bike-img">
+                <h3>Caloi 400 Aro 29</h3>
+                <p>Taxa de aluguel 25$/h</p>
+                <button class="rent-button">Alugue Já</button>
+            </div>
+            <!-- Adicione mais cards conforme necessário -->
+        </div>
+    </main>
+</body>
+</html>
