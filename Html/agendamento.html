@@ -14,7 +14,7 @@
             <div class="logo">
                 <a href="/Html/telaInicial.html"><img src="/imagens/logo.png" alt="logo" class="logo-img"></a>
             </div>
-         </div>
+        </div>
         <ul class="nav-links">
             <li><a href="/Html/telaBicicletas.html"><img src="/imagens/bikeIcon.png" class="icon">Bicicletas</a></li>
             <li><a href="/Html/agendamento.html"><img src="/imagens/calendarioIcon.png" class="icon">Agendar</a></li>
@@ -25,24 +25,35 @@
         </div>
     </nav>
 
-
-    <!-- Formulário de Agendamento -->
+    <!-- Container de Agendamento -->
     <div class="container">
-        <h1>Agendamento de Aluguel de Bicicleta</h1>
-        <form id="form-agendamento" class="cadastrar-bike">
-            <label for="data-inicio">Data e Hora de Início:</label>
-            <input type="datetime-local" id="data-inicio" required>
+        <div class="content">
+            <!-- Informações da Bicicleta -->
+            <div class="bike-info">
+                <h2>Detalhes da Bicicleta</h2>
+                <img id="bike-img" src="" alt="Bicicleta Escolhida" class="bike-img">
+                <p id="bike-nome"><strong>Nome:</strong> Nome da Bicicleta</p>
+            </div>
 
-            <label for="data-fim">Data e Hora de Término:</label>
-            <input type="datetime-local" id="data-fim" required>
+            <!-- Formulário de Agendamento -->
+            <div class="agendamento-info">
+                <h1>Agendamento de Aluguel</h1>
+                <form id="form-agendamento" class="cadastrar-bike">
+                    <label for="data-inicio">Data e Hora de Início:</label>
+                    <input type="datetime-local" id="data-inicio" required>
 
-            <button type="submit">Calcular Custo</button>
-        </form>
-        <div id="resultado" class="resultado">
-            <!-- Custo será exibido aqui -->
+                    <label for="data-fim">Data e Hora de Término:</label>
+                    <input type="datetime-local" id="data-fim" required>
+
+                    <button type="submit">Calcular Custo</button>
+                </form>
+                <div id="resultado" class="resultado">
+                    <!-- Custo será exibido aqui -->
+                </div>
+            </div>
         </div>
     </div>
 
-    <script src="agendamento.js"></script>
+    <script src="/Js/agendamento.js"></script>
 </body>
 </html>
