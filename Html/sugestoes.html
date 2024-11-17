@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sugestões</title>
     <link rel="stylesheet" href="/Css/sugestoes.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
             <div class="logo">
                 <a href="/Html/telaInicial.html"><img src="/imagens/logo.png" alt="logo" class="logo-img"></a>
             </div>
-         </div>
+        </div>
         <ul class="nav-links">
             <li><a href="/Html/telaBicicletas.html"><img src="/imagens/bikeIcon.png" class="icon">Bicicletas</a></li>
             <li><a href="/Html/agendamento.html"><img src="/imagens/calendarioIcon.png" class="icon">Agendar</a></li>
@@ -25,16 +25,26 @@
         </div>
     </nav>
 
+    <!-- Container de Sugestões -->
     <div class="container">
         <h1>SUGESTÕES</h1>
-        <form id="sugestão" class="sugestao-bike" >
-            <input type="text" placeholder="Modelo da Bicicleta">
-            <input type="text" placeholder="Tipo">
-            <input type="text" placeholder="Descrição">
+        <form id="sugestao-form" class="sugestao-bike">
+            <input type="text" id="modelo" placeholder="Modelo da Bicicleta" required>
+            <input type="text" id="tipo" placeholder="Tipo" required>
+            <input type="text" id="descricao" placeholder="Descrição" required>
             <button type="submit">Enviar</button>
         </form>
 
-    </div>  
+        <button id="cadastrar-btn" class="cadastrar-btn">Cadastrar</button>
 
+        <div id="sugestoes-list">
+            <h2>Sugestões Recebidas</h2>
+            <ul id="sugestoes-ul">
+                <!-- Sugestões carregadas do localStorage serão exibidas aqui -->
+            </ul>
+        </div>
+    </div>
+
+    <script src="/Js/sugestoes.js"></script>
 </body>
 </html>
