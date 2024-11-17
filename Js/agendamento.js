@@ -1,3 +1,23 @@
+// Função para carregar informações da bicicleta ao carregar a página
+document.addEventListener('DOMContentLoaded', function () {
+    const bikeEscolhida = JSON.parse(localStorage.getItem('bicicletaEscolhida'));
+
+    if (!bikeEscolhida) {
+        alert("Você precisa escolher uma bicicleta antes de agendar.");
+        window.location.href = "/Html/telaBicicletas.html"; // Redireciona para a página de bicicletas
+        return;
+    }
+
+    // Exibe a bicicleta escolhida na tela
+    const bikeImg = document.getElementById('bike-img');
+    const bikeNome = document.getElementById('bike-nome');
+
+    bikeImg.src = bikeEscolhida.img;
+    bikeImg.alt = bikeEscolhida.nome;
+    bikeNome.innerText = `Nome: ${bikeEscolhida.nome}`;
+});
+
+// Função para processar o formulário de agendamento
 document.getElementById('form-agendamento').addEventListener('submit', function (e) {
     e.preventDefault();
 
