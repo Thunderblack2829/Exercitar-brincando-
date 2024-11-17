@@ -1,3 +1,4 @@
+/* Reset de estilo */
 * {
     margin: 0;
     padding: 0;
@@ -5,6 +6,7 @@
     font-family: Arial, sans-serif;
 }
 
+/* Corpo da página */
 body {
     background-color: #f4f4f4;
     min-height: 100vh;
@@ -141,4 +143,39 @@ form.sugestao-bike button {
 
 form.sugestao-bike button:hover {
     background-color: darkred;
+}
+
+/* Botão Cadastrar */
+.cadastrar-btn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.cadastrar-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Lista de Sugestões */
+#sugestoes-list {
+    margin-top: 30px;
+    text-align: left;
+}
+
+#sugestoes-ul {
+    list-style: none;
+    padding: 0;
+}
+
+#sugestoes-ul li {
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
 }
