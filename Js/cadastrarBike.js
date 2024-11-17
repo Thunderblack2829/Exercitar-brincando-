@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const formCadastro = document.getElementById('formCadastro');
     const bicicletasDisponiveis = document.getElementById('bicicletasDisponiveis');
     const listaBicicletas = document.getElementById('listaBicicletas');
+    const sugestoesContainer = document.getElementById('sugestoes'); // Container para sugestões
 
     // Função para mostrar a seção de cadastro
     window.mostrarCadastro = function() {
@@ -75,4 +76,44 @@ document.addEventListener('DOMContentLoaded', function() {
             alert("Por favor, preencha todos os campos e adicione uma imagem da bicicleta.");
         }
     });
+
+    // Função para renderizar as sugestões
+    function mostrarSugestoes() {
+        sugestoesContainer.innerHTML = ''; // Limpa o container
+        const sugestoes = JSON.parse(localStorage.getItem('sugestoes')) || [];
+
+        sugestoes.forEach((sugestao, index) => {
+            const sugestaoElement = document.createElement('div');
+            sugestaoElement.classList.add('sugestao-item');
+
+            sugestaoElement.innerHTML = `
+                <p><strong>Modelo:</strong> ${sugestao.modelo}</p>
+                <p><strong>Tipo:</strong> ${sugestao.tipo}</p>
+                <p><strong>Descrição:</strong> ${sugestao.descricao}</p>
+                <button class="excluir-sugestao" data-index="${index}">Excluir</button>
+            `;
+
+            sugestoesContainer.appendChild(sugestaoElement);
+        });
+
+        // Adiciona evento de exclusão para cada botão
+        const botoesExcluir = document.querySelectorAll('.excluir-sugestao');
+        botoesExcluir.forEach(botao => {
+            botao.addEventListener('click', function() {
+                const index = this.getAttribute('data-index');
+                excluirSugestao(index);
+            });
+        });
+    }
+
+    // Função para excluir uma sugestão
+    function excluirSugestao(index) {
+        const sugestoes = JSON.parse(localStorage.getItem('sugestoes')) || [];
+        sugestoes.splice(index, 1); // Remove a sugestão pelo índice
+        localStorage.setItem('sugestoes', JSON.stringify(sugestoes));
+        mostrarSugestoes(); // Atualiza a lista
+    }
+
+    // Renderiza as sugestões na inicialização
+    mostrarSugestoes();
 });
