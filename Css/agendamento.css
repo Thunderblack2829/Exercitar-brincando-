@@ -88,20 +88,63 @@ body {
     height: 40px;
     margin-bottom: 4px;
 }
-
-/* Container de agendamento */
+/* Container principal */
 .container {
     background-color: #fff;
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 450px;
-    text-align: center;
+    width: 800px;
     margin: 120px auto 0;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.container h1 {
+.content {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Informações da Bicicleta */
+.bike-info {
+    text-align: center;
+    flex: 1;
+    max-width: 300px;
+}
+
+.bike-info h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.bike-info .bike-img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.bike-info p {
+    font-size: 16px;
+    color: #555;
+    margin-top: 8px;
+}
+
+/* Informações de Agendamento */
+.agendamento-info {
+    flex: 2;
+    text-align: left;
+}
+
+.agendamento-info h1 {
     font-size: 24px;
     font-weight: bold;
     color: #333;
