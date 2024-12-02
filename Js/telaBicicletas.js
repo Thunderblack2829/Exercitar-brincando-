@@ -1,68 +1,41 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('cadastro');
-    const listaBicicletas = document.getElementById('listaBicicletas');
+    const bikesList = document.getElementById('bikes-list');
+    const resultsCount = document.getElementById('results-count');
 
-    // Função para exibir bicicletas cadastradas
-    function mostrarBicicletasCadastradas() {
-        listaBicicletas.innerHTML = ''; // Limpa a lista existente
+    function carregarBicicletas() {
         const bicicletas = JSON.parse(localStorage.getItem('bicicletas')) || [];
+        bikesList.innerHTML = ''; // Limpa a lista de bicicletas
+        resultsCount.textContent = `${bicicletas.length} Resultados`;
 
-        bicicletas.forEach((bicicleta) => {
-            const bikeElement = document.createElement('div');
-            bikeElement.classList.add('bike-card');
-            bikeElement.innerHTML = `
-                <img src="${bicicleta.imagem}" alt="Imagem da bicicleta" class="bike-img">
+        bicicletas.forEach((bicicleta, index) => {
+            const bikeCard = document.createElement('div');
+            bikeCard.classList.add('bike-card');
+
+            bikeCard.innerHTML = `
+                <img src="${bicicleta.imagem}" alt="${bicicleta.modelo}" class="bike-img">
                 <h3>${bicicleta.modelo}</h3>
                 <p><strong>Tipo:</strong> ${bicicleta.tipo}</p>
-                <p><strong>Descrição:</strong> ${bicicleta.descricao}</p>
-                <p>Taxa de aluguel: 25$/h</p>
-                <a href="/Html/agendamento.html">
-                    <button class="rent-button">Alugue Já</button>
-                </a>
+                <p>${bicicleta.descricao}</p>
+                <button class="rent-button" data-index="${index}">Alugue Já</button>
             `;
-            listaBicicletas.appendChild(bikeElement);
+            bikesList.appendChild(bikeCard);
+        });
+
+        // Adiciona evento de clique para os botões "Alugue Já"
+        document.querySelectorAll('.rent-button').forEach((button) => {
+            button.addEventListener('click', function () {
+                const index = this.getAttribute('data-index');
+                const bicicletas = JSON.parse(localStorage.getItem('bicicletas')) || [];
+                const bicicletaEscolhida = bicicletas[index];
+
+                // Salva a bicicleta escolhida no Local Storage
+                localStorage.setItem('bicicletaEscolhida', JSON.stringify(bicicletaEscolhida));
+
+                // Redireciona para a tela de agendamento
+                window.location.href = "/Html/agendamento.html";
+            });
         });
     }
 
-    // Evento para salvar bicicleta no localStorage
-    form.addEventListener('submit', function (event) {
-        event.preventDefault();
-
-        const imagemInput = form.querySelector('.img-input').files[0];
-        const modelo = form.querySelector('input[placeholder="Modelo da Bicicleta"]').value;
-        const tipo = form.querySelector('input[placeholder="Tipo"]').value;
-        const descricao = form.querySelector('input[placeholder="Descrição"]').value;
-
-        if (imagemInput && modelo && tipo && descricao) {
-            const reader = new FileReader();
-
-            reader.onload = function (event) {
-                const imagemURL = event.target.result;
-
-                const novaBicicleta = {
-                    imagem: imagemURL,
-                    modelo,
-                    tipo,
-                    descricao
-                };
-
-                const bicicletas = JSON.parse(localStorage.getItem('bicicletas')) || [];
-                bicicletas.push(novaBicicleta);
-                localStorage.setItem('bicicletas', JSON.stringify(bicicletas));
-
-                form.reset(); // Limpa o formulário
-                alert("Bicicleta cadastrada com sucesso!");
-
-                // Atualiza a exibição das bicicletas
-                mostrarBicicletasCadastradas();
-            };
-
-            reader.readAsDataURL(imagemInput);
-        } else {
-            alert("Por favor, preencha todos os campos e adicione uma imagem da bicicleta.");
-        }
-    });
-
-    // Inicializa a exibição de bicicletas cadastradas
-    mostrarBicicletasCadastradas();
+    carregarBicicletas();
 });
