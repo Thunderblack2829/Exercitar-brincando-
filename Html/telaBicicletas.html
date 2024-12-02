@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aluguel de Bicicletas</title>
+    <title>Bicicletas Disponíveis</title>
     <link rel="stylesheet" href="/Css/telaBicicletas.css">
 </head>
 <body>
@@ -24,37 +24,30 @@
         </div>
     </nav>
 
-    <!-- Formulário de Cadastro -->
-    <div class="container">
-        <div>.</div>
-        <div></div>
-        <h1>CADASTRAR BICICLETA</h1>
-        <form id="cadastro" class="cadastrar-bike">
-            <input class="img-input" type="file" accept="image/*" placeholder="Insira imagem da bicicleta">
-            <input type="text" placeholder="Modelo da Bicicleta" required>
-            <input type="text" placeholder="Tipo" required>
-            <input type="text" placeholder="Descrição" required>
-            <button type="submit">Cadastrar</button>
-        </form>
-    </div>
-
-    <!-- Lista de Bicicletas -->
-    <main class="main-content">
-        <div class="bikes-list">
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Lista de Bicicletas -->
+        <div class="bikes-list" id="bikes-list">
             <div class="header">
-                <h2>Resultados</h2>
-                <select>
-                    <option>Mais Relevantes</option>
-                    <option>Preço: Menor para Maior</option>
-                    <option>Preço: Maior para Menor</option>
-                </select>
-            </div>
-
-            <div id="listaBicicletas">
-                <!-- Bicicletas cadastradas serão exibidas aqui -->
+                <h2 id="results-count">0 Resultados</h2>
             </div>
         </div>
-    </main>
+
+        <!-- Filtro -->
+        <div class="filter">
+            <h3>Filtrar Por:</h3>
+            <div class="filter-option">
+                <h4>Modalidade</h4>
+                <label><input type="checkbox" value="mountain-bike"> Mountain Bike</label>
+                <label><input type="checkbox" value="lazer"> Lazer</label>
+                <label><input type="checkbox" value="estrada"> Estrada</label>
+            </div>
+            <div class="suggestion">
+                <p>Não encontrou o que procurava?</p>
+                <a href="/Html/sugestoes.html"><button class="suggest-button">Sugira Aqui</button></a>
+            </div>
+        </div>
+    </div>
 
     <script src="/Js/telaBicicletas.js"></script>
 </body>
