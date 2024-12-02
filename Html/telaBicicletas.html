@@ -13,7 +13,7 @@
             <div class="logo">
                 <a href="/Html/telaInicial.html"><img src="/imagens/logo.png" alt="logo" class="logo-img"></a>
             </div>
-         </div>
+        </div>
         <ul class="nav-links">
             <li><a href="/Html/telaBicicletas.html"><img src="/imagens/bikeIcon.png" class="icon">Bicicletas</a></li>
             <li><a href="/Html/agendamento.html"><img src="/imagens/calendarioIcon.png" class="icon">Agendar</a></li>
@@ -24,26 +24,25 @@
         </div>
     </nav>
 
+    <!-- Formulário de Cadastro -->
+    <div class="container">
+        <div>.</div>
+        <div></div>
+        <h1>CADASTRAR BICICLETA</h1>
+        <form id="cadastro" class="cadastrar-bike">
+            <input class="img-input" type="file" accept="image/*" placeholder="Insira imagem da bicicleta">
+            <input type="text" placeholder="Modelo da Bicicleta" required>
+            <input type="text" placeholder="Tipo" required>
+            <input type="text" placeholder="Descrição" required>
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
 
-    <!-- Conteúdo Principal -->
+    <!-- Lista de Bicicletas -->
     <main class="main-content">
-        <div class="filter">
-            <h3>Filtrar Por:</h3>
-            <div class="filter-option">
-                <h4>Modalidade</h4>
-                <label><input type="checkbox"> Mountain Bike</label>
-                <label><input type="checkbox"> Lazer</label>
-                <label><input type="checkbox"> Estrada</label>
-            </div>
-            <div class="suggestion">
-                <p>Não encontrou o que procurava?</p>
-                <a href="/Html/sugestoes.html"><button>Sugira Aqui</button></a>
-            </div>
-        </div>
-
         <div class="bikes-list">
             <div class="header">
-                <h2>8 Resultados</h2>
+                <h2>Resultados</h2>
                 <select>
                     <option>Mais Relevantes</option>
                     <option>Preço: Menor para Maior</option>
@@ -51,16 +50,9 @@
                 </select>
             </div>
 
-            <!-- Exemplo de Card de Bicicleta -->
-            <div class="bike-card">
-                <img src="/imagens/caloi aro 29.jpg" alt="Caloi 400 Aro 29" class="bike-img">
-                <h3>Caloi 400 Aro 29</h3>
-                <p>Taxa de aluguel 25$/h</p>
-                <a href="agendamento.html"><button class="rent-button" 
-                        data-nome="Caloi 400 Aro 29" 
-                        data-img="/imagens/caloi aro 29.jpg">Alugue Já</button></a>
-            </div>            
-            <!-- Adicione mais cards conforme necessário -->
+            <div id="listaBicicletas">
+                <!-- Bicicletas cadastradas serão exibidas aqui -->
+            </div>
         </div>
     </main>
 
