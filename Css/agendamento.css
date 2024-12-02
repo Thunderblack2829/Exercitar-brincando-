@@ -88,6 +88,7 @@ body {
     height: 40px;
     margin-bottom: 4px;
 }
+
 /* Container principal */
 .container {
     background-color: #fff;
@@ -101,6 +102,7 @@ body {
     align-items: center;
 }
 
+/* Layout de conteúdo */
 .content {
     display: flex;
     gap: 30px;
@@ -151,18 +153,29 @@ body {
     margin-bottom: 20px;
 }
 
-form.cadastrar-bike input,
-form.cadastrar-bike button {
+form#form-agendamento {
+    display: flex;
+    flex-direction: column;
+}
+
+form#form-agendamento label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+form#form-agendamento input {
     width: 100%;
     font-size: 16px;
     padding: 12px;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
     border-radius: 5px;
     border: 1px solid #ccc;
     background-color: #f0f0f0;
 }
 
-form.cadastrar-bike button {
+form#form-agendamento button {
     background-color: #e62e2e;
     color: #fff;
     border: none;
@@ -170,14 +183,17 @@ form.cadastrar-bike button {
     font-size: 16px;
     padding: 12px;
     border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
-form.cadastrar-bike button:hover {
+form#form-agendamento button:hover {
     background-color: darkred;
 }
 
+/* Resultado do custo */
 .resultado {
     margin-top: 20px;
     font-size: 18px;
     color: #333;
+    font-weight: bold;
 }
