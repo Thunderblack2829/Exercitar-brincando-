@@ -1,11 +1,93 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const dropdown = document.getElementById('clienteDropdown');
     const formNovoCliente = document.getElementById('form-novo-cliente');
     const formUsuarioExistente = document.getElementById('form-usuario-existente');
     const dependentesInfo = document.getElementById('dependentes-info');
     const radiosDependentes = document.getElementsByName('dependentes');
 
-    // Função para alternar a exibição dos formulários com base na seleção do dropdown
+    // Função para validar CPF
+    function isValidCPF(cpf) {
+        cpf = cpf.replace(/\D/g, ''); // Remove caracteres não numéricos
+
+        if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) {
+            return false; // CPF inválido se não tiver 11 dígitos ou todos forem iguais
+        }
+
+        let soma = 0;
+        let resto;
+
+        // Verifica o primeiro dígito verificador
+        for (let i = 1; i <= 9; i++) {
+            soma += parseInt(cpf[i - 1]) * (11 - i);
+        }
+        resto = (soma * 10) % 11;
+        if (resto === 10 || resto === 11) resto = 0;
+        if (resto !== parseInt(cpf[9])) return false;
+
+        soma = 0;
+
+        // Verifica o segundo dígito verificador
+        for (let i = 1; i <= 10; i++) {
+            soma += parseInt(cpf[i - 1]) * (12 - i);
+        }
+        resto = (soma * 10) % 11;
+        if (resto === 10 || resto === 11) resto = 0;
+        if (resto !== parseInt(cpf[10])) return false;
+
+        return true;
+    }
+
+    // Salvar dados do novo cliente no localStorage
+    formNovoCliente.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const nome = formNovoCliente.querySelector('input[placeholder="Nome Completo"]').value;
+        const cpf = formNovoCliente.querySelector('input[placeholder="CPF"]').value;
+
+        if (!isValidCPF(cpf)) {
+            alert('CPF inválido. Por favor, insira um CPF válido.');
+            return;
+        }
+
+        if (nome && cpf) {
+            localStorage.setItem(cpf, JSON.stringify({ nome }));
+            alert('Cadastro realizado com sucesso!');
+            formNovoCliente.reset();
+        } else {
+            alert('Por favor, preencha todos os campos obrigatórios.');
+        }
+    });
+
+    // Verificar dados de login do usuário existente
+    formUsuarioExistente.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const nome = formUsuarioExistente.querySelector('input[placeholder="Nome Completo"]').value;
+        const cpf = formUsuarioExistente.querySelector('input[placeholder="CPF"]').value;
+
+        if (!isValidCPF(cpf)) {
+            alert('CPF inválido. Por favor, insira um CPF válido.');
+            return;
+        }
+
+        const cliente = JSON.parse(localStorage.getItem(cpf));
+
+        if (cliente && cliente.nome === nome) {
+            alert(`Bem-vindo, ${cliente.nome}!`);
+            window.location.href = "/Html/telainicial.html";
+        } else {
+            alert('Nome ou CPF incorretos. Por favor, tente novamente.');
+        }
+    });
+
+    // Configurações iniciais ao carregar a página
+    dropdown.addEventListener('change', toggleForms);
+    radiosDependentes.forEach(radio => {
+        radio.addEventListener('change', toggleDependentes);
+    });
+
+    toggleForms();
+    toggleDependentes();
+
+    // Outras funções existentes
     function toggleForms() {
         if (dropdown.value === 'novo-cliente') {
             formNovoCliente.style.display = 'block';
@@ -16,146 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Função para exibir ou ocultar campos de dependentes
     function toggleDependentes() {
         dependentesInfo.style.display = radiosDependentes[0].checked ? 'block' : 'none';
     }
-
-    // Salvar dados do novo cliente no localStorage ao enviar o formulário
-    formNovoCliente.addEventListener('submit', function(event) {
-        event.preventDefault();
-        const nome = formNovoCliente.querySelector('input[placeholder="Nome Completo"]').value;
-        const cpf = formNovoCliente.querySelector('input[placeholder="CPF"]').value;
-
-        if (nome && cpf) {
-            localStorage.setItem(cpf, JSON.stringify({ nome }));
-            alert('Cadastro realizado com sucesso!');
-            formNovoCliente.reset();
-            toggleDependentes();
-        } else {
-            alert('Por favor, preencha todos os campos obrigatórios.');
-        }
-    });
-
-    // Verificar dados de login do usuário existente
-    formUsuarioExistente.addEventListener('submit', function(event) {
-        event.preventDefault();
-        const nome = formUsuarioExistente.querySelector('input[placeholder="Nome Completo"]').value;
-        const cpf = formUsuarioExistente.querySelector('input[placeholder="CPF"]').value;
-
-        const cliente = JSON.parse(localStorage.getItem(cpf));
-        
-        if (cliente && cliente.nome === nome) {
-            alert(`Bem-vindo de volta, ${cliente.nome}!`);
-            formUsuarioExistente.reset();
-            window.location.href = "/Html/telainicial.html";
-        } else {
-            alert('Nome ou CPF incorretos. Por favor, tente novamente.');
-        }
-    });
-
-    // Executa a alternância ao selecionar uma opção no dropdown
-    dropdown.addEventListener('change', toggleForms);
-
-    // Monitora os rádios de dependentes
-    radiosDependentes.forEach(radio => {
-        radio.addEventListener('change', toggleDependentes);
-    });
-
-    document.addEventListener('DOMContentLoaded', function () {
-            const dropdown = document.getElementById('clienteDropdown');
-            const formNovoCliente = document.getElementById('form-novo-cliente');
-            const formUsuarioExistente = document.getElementById('form-usuario-existente');
-            const dependentesInfo = document.getElementById('dependentes-info');
-            const radiosDependentes = document.getElementsByName('dependentes');
-            const blockLayer = document.getElementById('block-layer');
-            const btnAbrirLogin = document.getElementById('btn-abrir-login');
-
-            // Verificar se o usuário está logado
-            function isUserLoggedIn() {
-                return localStorage.getItem('loggedInUser') !== null;
-            }
-
-            // Atualizar o estado da camada de bloqueio
-            function updateBlockLayer() {
-                if (isUserLoggedIn()) {
-                    blockLayer.style.display = 'none';
-                } else {
-                    blockLayer.style.display = 'flex';
-                }
-            }
-
-            // Salvar dados do novo cliente no localStorage
-            formNovoCliente.addEventListener('submit', function (event) {
-                event.preventDefault();
-                const nome = formNovoCliente.querySelector('input[placeholder="Nome Completo"]').value;
-                const cpf = formNovoCliente.querySelector('input[placeholder="CPF"]').value;
-
-                if (nome && cpf) {
-                    localStorage.setItem(cpf, JSON.stringify({ nome }));
-                    localStorage.setItem('loggedInUser', cpf); // Marcar como logado
-                    alert('Cadastro realizado com sucesso!');
-                    formNovoCliente.reset();
-                    toggleDependentes();
-                    updateBlockLayer();
-                } else {
-                    alert('Por favor, preencha todos os campos obrigatórios.');
-                }
-            });
-
-            // Verificar dados de login do usuário existente
-            formUsuarioExistente.addEventListener('submit', function (event) {
-                event.preventDefault();
-                const nome = formUsuarioExistente.querySelector('input[placeholder="Nome Completo"]').value;
-                const cpf = formUsuarioExistente.querySelector('input[placeholder="CPF"]').value;
-
-                const cliente = JSON.parse(localStorage.getItem(cpf));
-
-                if (cliente && cliente.nome === nome) {
-                    alert(`Bem-vindo, ${cliente.nome}!`);
-                    localStorage.setItem('loggedInUser', cpf); // Armazenar usuário logado
-                    console.log("Redirecionando para a tela inicial...");
-                    window.location.href = "/Html/telainicial.html"; // Redirecionar para a tela inicial
-                } else {
-                    alert('Nome ou CPF incorretos. Por favor, tente novamente.');
-                }
-            });
-        
-
-            // Alternar entre formulários
-            function toggleForms() {
-                if (dropdown.value === 'novo-cliente') {
-                    formNovoCliente.style.display = 'block';
-                    formUsuarioExistente.style.display = 'none';
-                } else {
-                    formNovoCliente.style.display = 'none';
-                    formUsuarioExistente.style.display = 'block';
-                }
-            }
-
-            // Alternar campos de dependentes
-            function toggleDependentes() {
-                dependentesInfo.style.display = radiosDependentes[0].checked ? 'block' : 'none';
-            }
-
-            // Exibir login ao clicar no botão
-            btnAbrirLogin.addEventListener('click', () => {
-                dropdown.value = 'usuario-existente';
-                toggleForms();
-            });
-
-            // Configurações iniciais
-            toggleForms();
-            toggleDependentes();
-            updateBlockLayer();
-
-            dropdown.addEventListener('change', toggleForms);
-            radiosDependentes.forEach(radio => {
-                radio.addEventListener('change', toggleDependentes);
-            });
-        });
-
-    // Configurações iniciais ao carregar a página
-    toggleForms();
-    toggleDependentes();
 });
