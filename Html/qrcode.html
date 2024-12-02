@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagem Centralizada</title>
+    <link rel="stylesheet" href="/Css/telaBicicletas.css">
+    <style>
+        /* Estilos adicionais para centralizar a imagem */
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Ocupa a altura total da tela */
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-content img {
+            max-width: 100%;
+            max-height: 80vh; /* Limita a altura da imagem */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="nav">
+        <div class="nav-left">
+            <div class="logo">
+                <a href="/Html/telaInicial.html"><img src="/imagens/logo.png" alt="logo" class="logo-img"></a>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/Html/telaBicicletas.html"><img src="/imagens/bikeIcon.png" class="icon">Bicicletas</a></li>
+            <li><a href="/Html/agendamento.html"><img src="/imagens/calendarioIcon.png" class="icon">Agendar</a></li>
+            <li><a href="/Html/sobreNos.html"><img src="/imagens/chatIcon.png" class="icon">Sobre Nós</a></li>
+        </ul>
+        <div class="nav-right">
+            <a href="/Html/telaLogin.html"><img src="/imagens/loginIcon.png" class="icon">Entrar</a>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <div class="main-content">
+        <img src="/imagens/qrcode.jpg" alt="Imagem Centralizada">
+    </div>
+</body>
+</html>
+
