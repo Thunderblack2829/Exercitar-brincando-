@@ -1,52 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="/Css/telaLogin.css">
+    <title>Exercitar brincando</title>
+    <link rel="stylesheet" href="/Css/telaInicial.css">
 </head>
 <body>
-    <div class="container">
-        <div class="botaoDropDown">
-            <select id="clienteDropdown" class="botaoDropDown-btn">
-                <option value="novo-cliente">Novo Cliente</option>
-                <option value="usuario-existente">Cliente Existente</option>
-            </select>
-        </div>
+    <main>
         
-        <!-- Formulário de Novo Cliente -->
-        <form id="form-novo-cliente" class="cliente-form">
-            <input type="text" placeholder="Nome Completo" required>
-            <input type="text" placeholder="Endereço" required>
-            <input type="text" placeholder="N°" required>
-            <input type="text" placeholder="Telefone" required>
-            <input type="text" placeholder="CPF" required>
-            <br>
-            <label>Possui dependentes</label>
-            <div>
-                <input type="radio" id="Sim" name="dependentes" value="Sim">
-                <label for="Sim">Sim</label>
-                <input type="radio" id="Não" name="dependentes" value="Não">
-                <label for="Não">Não</label>
+        <nav class="nav">
+            <div class="nav-left">
+                <div class="logo">
+                    <a href="/Html/telaInicial.html"><img src="/imagens/logo.png" alt="logo" class="logo-img"></a>
+                </div>
+             </div>
+            <ul class="nav-links">
+                <li><a href="/Html/telaBicicletas.html"><img src="/imagens/bikeIcon.png" class="icon">Bicicletas</a></li>
+                <li><a href="/Html/agendamento.html"><img src="/imagens/calendarioIcon.png" class="icon">Agendar</a></li>
+                <li><a href="/Html/sobreNos.html"><img src="/imagens/chatIcon.png" class="icon">Sobre Nós</a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="/Html/telaLogin.html"><img src="/imagens/loginIcon.png" class="icon">Entrar</a>
             </div>
-            <!-- Campos de dependentes ocultos caso não seja selecionado -->
-            <div id="dependentes-info" style="display: none;">
-                <input type="text" placeholder="Nome Completo (Dependente)">
-                <input type="text" placeholder="CPF (Dependente)">
+        </nav>
+
+
+        <section class="pag1">
+            <img src="/imagens/bicicleta.jpg" alt="imagem de uma bicicleta" class="pag1-imagem">
+            <div class="pag1-texto">
+                <h1>Exercitar Brincando</h1>
+                <!-- teste para clicar no fale conosco e direciona diretamente pra tela de login enquanto nao tem nav bar-->
+                <a href="https://wa.me/5545984160294" class="pag1-botao" > FALE CONOSCO </a> <!--colocar o link do fale conosco no href-->
             </div>
-            <br>
-            <button type="submit">Cadastrar-se</button>
-        </form>
-        
-        <!-- Formulário de Usuário Existente -->
-        <form id="form-usuario-existente" class="cliente-form" style="display: none;">
-            <input type="text" placeholder="Nome Completo" required>
-            <input type="text" placeholder="CPF" required>
-            <br>
-            <button type="submit">Entrar</button>
-        </form>
-    </div>
-    <script src="/Js/telaLogin.js"></script>
+        </section>
+        <section class="info">
+            <h2>Aluguel De Bicicletas</h2>
+            <p>Deslocar-se para diferentes lugares pode parecer mais um dos desafios do dia a dia. Por esse motivo, uma excelente solução é optar pelo aluguel de bicicleta. Com essa opção, você tem mais liberdade para se locomover.</p>
+            <p>Com o aluguel da <strong>Exercitar Brincando</strong>, você tem mais praticidade no seu dia a dia. A partir de agora, esqueça ficar horas preso no trânsito. Confira os principais modelos de bike abaixo e escolha o seu!</p>
+            <p>O que está incluso:</p>
+            <ul>
+                <li>Capacete;</li>
+                <li>Sinalização luminosa dianteira e traseira;</li>
+            </ul>
+        </section>
+    </main>
 </body>
 </html>
