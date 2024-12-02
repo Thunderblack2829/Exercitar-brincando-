@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="/Css/agendamento.css">
 </head>
 <body>
-
-    <!-- Navbar -->
     <nav class="nav">
         <div class="nav-left">
             <div class="logo">
@@ -25,39 +23,24 @@
         </div>
     </nav>
 
-    <!-- Container de Agendamento -->
     <div class="container">
         <div class="content">
-            <!-- Informações da Bicicleta -->
             <div class="bike-info">
                 <h2>Detalhes da Bicicleta</h2>
                 <img id="bike-img" src="" alt="Bicicleta Escolhida" class="bike-img">
-                <p id="bike-nome"><strong>Nome:</strong> Nome da Bicicleta</p>
+                <p id="bike-nome"><strong>Nome:</strong></p>
             </div>
 
-            <!-- Formulário de Agendamento -->
             <div class="agendamento-info">
                 <h1>Agendamento de Aluguel</h1>
-                <form id="form-agendamento" class="cadastrar-bike">
+                <form id="form-agendamento">
                     <label for="data-inicio">Data e Hora de Início:</label>
                     <input type="datetime-local" id="data-inicio" required>
-
                     <label for="data-fim">Data e Hora de Término:</label>
                     <input type="datetime-local" id="data-fim" required>
-
                     <button type="submit">Calcular Custo</button>
                 </form>
-                
-                <div id="resultado" class="resultado">
-                    <!-- Custo será exibido aqui -->
-                </div>
-
-                <!-- Botão para Pagamento -->
-                <div class="payment-container">
-                    <a href="/Html/qrcode.html" class="payment-button">
-                        Ir para o Pagamento
-                    </a>
-                </div>
+                <div id="resultado" class="resultado"></div>
             </div>
         </div>
     </div>
