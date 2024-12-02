@@ -1,17 +1,18 @@
-/* Reset de estilo */
+/* Estilos Gerais */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
-/* Corpo da página */
 body {
+    font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    min-height: 100vh;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
 }
 
 /* Navbar */
@@ -21,7 +22,7 @@ body {
     align-items: center;
     background-color: black;
     padding: 10px 20px;
-    position: fixed; /* Fixa a navbar no topo da página */
+    position: fixed;
     width: 100%;
     top: 0;
     left: 0;
@@ -89,122 +90,79 @@ body {
     margin-bottom: 4px;
 }
 
-/* Container Principal */
+/* Container principal */
 .container {
     background-color: #fff;
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 450px;
-    text-align: center;
-    margin: 120px auto 0; /* Ajuste para centralizar o conteúdo verticalmente e dar espaço para a navbar */
-    position: relative;
+    width: 800px;
+    margin: 120px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.container h1 {
+h1 {
     font-size: 24px;
     font-weight: bold;
     color: #333;
     margin-bottom: 20px;
 }
 
-/* Formulário de Cadastro */
-form.cadastrar-bike {
+/* Estilos do Formulário */
+form {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    gap: 15px;
 }
 
-form.cadastrar-bike input,
-form.cadastrar-bike textarea,
-form.cadastrar-bike button {
-    width: 100%;
-    font-size: 16px;
+input[type="file"] {
     padding: 12px;
-    margin-bottom: 12px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    border: 1px solid #ccc;
-    background-color: #f0f0f0;
 }
 
-form.cadastrar-bike input.img-input {
-    background-color: #fff; /* Estilo para o campo de upload de imagem */
+input[type="text"],
+select {
+    padding: 12px;
+    background-color: #f9f9f9;
     border: 1px solid #ccc;
-    padding: 10px;
-    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
-form.cadastrar-bike button {
+button {
     background-color: #e62e2e;
-    color: #fff;
+    color: white;
+    padding: 12px;
     border: none;
     cursor: pointer;
     font-size: 16px;
-    padding: 12px;
     border-radius: 5px;
 }
 
-form.cadastrar-bike button:hover {
+button:hover {
     background-color: darkred;
 }
 
-/* Estilo para a seção de sugestões */
-.sugestoes-section {
-    margin-top: 10px; /* Espaço entre o formulário e a seção de sugestões */
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.sugestoes-section h2 {
-    font-size: 20px;
+/* Estilos adicionais para os elementos do formulário */
+label {
+    font-size: 16px;
     font-weight: bold;
     color: #333;
-    margin-bottom: 20px;
 }
 
-.sugestao-item {
-    background-color: #f9f9f9;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+select {
+    width: 100%;
 }
 
-.sugestao-item p {
-    margin-bottom: 8px;
-    font-size: 14px;
-    color: #555;
+input[type="text"]:focus,
+select:focus,
+input[type="file"]:focus {
+    border-color: #e62e2e;
+    outline: none;
 }
 
-.sugestao-item button {
-    background-color: #d32f2f;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-size: 14px;
-    margin-top: 10px;
-}
-
-.sugestao-item button:hover {
-    background-color: #b71c1c;
-}
-
-/* Estilo de botão para exclusão */
-.sugestao-item .excluir-sugestao {
-    background-color: #d32f2f;
-    color: #fff;
-    padding: 8px 15px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
-.sugestao-item .excluir-sugestao:hover {
-    background-color: #b71c1c;
-}
