@@ -26,15 +26,24 @@
 
     <div class="container">
         <h1>CADASTRAR BICICLETA</h1>
-        <form id="cadastro" class="cadastrar-bike">
-            <input class="img-input" type="file" accept="image/*">
-            <input type="text" placeholder="Modelo da Bicicleta">
-            <input type="text" placeholder="Tipo">
-            <input type="text" placeholder="Descrição">
-            <button type="submit">Enviar</button>
+        <form id="cadastro">
+            <input class="img-input" type="file" accept="image/*" placeholder="Insira imagem da bicicleta">
+            <input type="text" placeholder="Modelo da Bicicleta" required>
+            
+            <!-- Dropdown para selecionar o tipo de bicicleta -->
+            <label for="tipo">Tipo de Bicicleta</label>
+            <select id="tipo" name="tipo" required>
+                <option value="" disabled selected>Escolha o tipo</option>
+                <option value="mountain-bike">Mountain Bike</option>
+                <option value="lazer">Lazer</option>
+                <option value="estrada">Estrada</option>
+            </select>
+
+            <input type="text" placeholder="Descrição" required>
+            <button type="submit">Cadastrar</button>
         </form>
     </div>
 
-<script src="/Js/cadastrarBike.js"></script>
+    <script src="/Js/cadastrarBike.js"></script>
 </body>
 </html>
