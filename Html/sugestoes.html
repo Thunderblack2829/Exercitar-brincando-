@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/Css/sobreNos.css">
+    <title>Sugestões</title>
+    <link rel="stylesheet" href="/Css/sugestoes.css">
 </head>
 <body>
+
+    <!-- Navbar -->
     <nav class="nav">
         <div class="nav-left">
             <div class="logo">
                 <a href="/Html/telaInicial.html"><img src="/imagens/logo.png" alt="logo" class="logo-img"></a>
             </div>
-         </div>
+        </div>
         <ul class="nav-links">
             <li><a href="/Html/telaBicicletas.html"><img src="/imagens/bikeIcon.png" class="icon">Bicicletas</a></li>
             <li><a href="/Html/agendamento.html"><img src="/imagens/calendarioIcon.png" class="icon">Agendar</a></li>
@@ -23,17 +25,20 @@
         </div>
     </nav>
 
-<div class="container">
-    <img src="/imagens/veio da bike.png" alt="senhor de idade com bicicleta" class="bike-image">
-    <div class="content">
-        <h1>Quem Somos </h1>
-        <p> Somos uma empresa apaixonada pela promoção de atividades recreativas e pela alegria de pedalar. Localizada no coração de Ipanema, no Rio de Janeiro, nossa missão é oferecer experiências inesquecíveis aos moradores e visitantes da região, sempre com um toque de criatividade e diversão.
-            Fundada por Sr. Harvey, nossa loja cresceu rapidamente, conquistando a confiança de uma clientela fiel.</p> 
-        <p>Nossa proposta é simples: alugar bicicletas de alta qualidade, para que todos possam desfrutar das belezas de Ipanema de forma saudável e divertida. Com um portfólio diversificado, temos bicicletas para todas as idades e estilos, atendendo desde os pequenos até os ciclistas mais experientes.
-            Acreditamos que a prática de exercícios deve ser leve e prazerosa. Por isso, promovemos um ambiente acolhedor, onde cada cliente é tratado com atenção especial. Valorizamos suas sugestões e estamos sempre abertos a novas ideias para ampliar nosso estoque, garantindo que você encontre a bicicleta perfeita para suas aventuras.
-            Recentemente, identificamos a necessidade de modernizar nossos processos.</p>
-        <p> Na Exercitar Brincando, não oferecemos apenas bicicletas, mas momentos de lazer e saúde. Junte-se a nós e venha pedalar pela beleza de Ipanema!</p>
-   </div>
- </div>
+    <!-- Container de Sugestões -->
+    <div class="container">
+        <h1>SUGESTÕES</h1>
+        <form id="sugestao-form" class="sugestao-bike">
+            <input type="text" id="modelo" placeholder="Modelo da Bicicleta" required>
+            <input type="text" id="tipo" placeholder="Tipo" required>
+            <input type="text" id="descricao" placeholder="Descrição" required>
+            <button type="submit">Enviar</button>
+        </form>
+
+        <button id="cadastrar-btn" class="cadastrar-btn">Cadastrar</button>
+
+    </div>
+
+    <script src="/Js/sugestoes.js"></script>
 </body>
 </html>
