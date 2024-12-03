@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,14 +20,14 @@
             <li><a href="/Html/sobreNos.html"><img src="/imagens/chatIcon.png" class="icon">Sobre Nós</a></li>
         </ul>
         <div class="nav-right">
-            <a href="/Html/telaLogin.html"><img src="/imagens/loginIcon.png" class="icon">Entrar</a>
+            <a href="/Html/telaLogin.html"><img src="/imagens/loginIcon.png" class="icon"></a>
         </div>
     </nav>
 
     <div class="container">
         <h1>CADASTRAR BICICLETA</h1>
         <form id="cadastro">
-            <input class="img-input" type="file" accept="image/*" placeholder="Insira imagem da bicicleta">
+            <input class="img-input" type="file" accept="image/*" required>
             <input type="text" placeholder="Modelo da Bicicleta" required>
             
             <!-- Dropdown para selecionar o tipo de bicicleta -->
@@ -42,6 +42,13 @@
             <input type="text" placeholder="Descrição" required>
             <button type="submit">Cadastrar</button>
         </form>
+
+        <!-- Contêiner para exibir sugestões -->
+        <div id="sugestoes-container" class="sugestoes-container">
+            <h2>Sugestões:</h2>
+            <p id="nenhuma-sugestao">Não há sugestões disponíveis.</p>
+            <!-- Sugestões carregadas aparecerão aqui -->
+        </div>
     </div>
 
     <script src="/Js/cadastrarBike.js"></script>
