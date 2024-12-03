@@ -165,4 +165,33 @@ input[type="file"]:focus {
     border-color: #e62e2e;
     outline: none;
 }
+/* Estilos para exibir as sugestões */
+.sugestoes-container {
+    margin-top: 30px;
+    width: 100%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.sugestao-item {
+    margin-bottom: 20px;
+}
+
+.sugestao-item h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.sugestao-item p {
+    font-size: 16px;
+    color: #555;
+}
+
+.sugestao-item hr {
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}
+
 
